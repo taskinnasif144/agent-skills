@@ -24,8 +24,9 @@ Only the short final answer reaches the user.
 - **verified-research:** career, money, or long-term decisions, deep dives,
   and any request for maximum thoroughness.
 - Naming either skill explicitly always wins over these rules.
-- If it is genuinely unclear which one the user wants, ask one question —
-  "Quick flash pass or full deep research?" — and run the one they pick.
+- If it is genuinely unclear which one the user wants, ask the routing pick
+  through the question tool — "Quick flash pass or full deep research?" — and
+  run the one they pick.
 
 ## The pipeline
 
@@ -58,13 +59,15 @@ Ask about whatever would change the answer. Usually that means:
 
 How to grill:
 
-- Ask in small rounds of 3 to 5 questions. Use tappable options if the app
-  supports them. Otherwise use numbered questions with short options.
+- Ask in small rounds of 3 to 5 questions in one question-tool call per
+  round. Give concrete options, put the recommended option first, and label
+  it "(Recommended)".
 - Do not ask what you can find out yourself by searching.
 - For a pure fact-check, ask less: the exact claim, who said it, when, and
   where.
 - Keep going until you can explain their question back in one short paragraph.
-  Then say it back: "Here is what I will research: ...". Wait for a yes.
+  Then say it back through the question tool: "Here is what I will research:
+  ...". Ask for confirmation and wait for a yes.
 - Stop when more questions would not change the research.
 
 ## Step 2: Plan
@@ -218,6 +221,8 @@ only the sources actually used: link and date.
   One short line is fine, for example: "Checked 9 sources and challenged
   4 assumptions."
 - Paraphrase sources. Do not paste long quotes.
+- Ask the user every question through the question tool. If the harness has
+  no question tool, fall back to numbered questions in chat.
 
 ---
 

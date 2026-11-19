@@ -4,14 +4,28 @@ Installable agent skills for the [skills](https://skills.sh) ecosystem (`npx ski
 
 ## Which one do I need?
 
-| | flash-research | verified-research |
-|---|---|---|
-| Use for | Quick passes, simple current-fact questions, single-claim fact-checks | Career/money/high-stakes decisions, deep dives, maximum thoroughness |
-| Pipeline | ~5 subagents (source scout, 3 collectors, 1 skeptic) | 8–11 subagents (source scout, collect, challenge, verify) |
-| Answer | 250–400 words, 4 sections | 600–800 words, 7 sections |
-| Time | About 3–5 minutes of agent work | About 5 minutes read, longer to research |
+| | targeted-search | flash-research | verified-research |
+|---|---|---|---|
+| Use for | Online search with a short summary, quick lookups, no stakes | Quick passes, simple current-fact questions, single-claim fact-checks | Career/money/high-stakes decisions, deep dives, maximum thoroughness |
+| Pipeline | ~3 subagents (3 angle-searchers), one light grill round | ~5 subagents (source scout, 3 collectors, 1 skeptic) | 8–11 subagents (source scout, collect, challenge, verify) |
+| Answer | 150–300 word chat summary shaped to the ask | 250–400 words, 4 sections | 600–800 words, 7 sections |
+| Time | About 5 minutes total | About 3–5 minutes of agent work | About 5 minutes read, longer to research |
 
-Both skills interview you first, search from multiple angles, challenge their own claims, and label what holds up. Not sure which? The agent will ask you; naming either skill explicitly always wins.
+All three interview you first and search from multiple angles. flash-research and verified-research also challenge their own claims and label what holds up; targeted-search returns a plain summary. A fourth skill, research, runs in the background and saves findings to a file. Not sure which? The agent will ask you; naming a skill explicitly always wins.
+
+## targeted-search
+
+A lightweight multi-angle online search: one light interview round, 3 parallel angle-searchers, and a 150–300 word summary shaped to your question — done in about 5 minutes.
+
+### Install
+
+```bash
+npx skills add taskinnasif144/agent-skills --skill targeted-search
+```
+
+### Example
+
+Ask: "Search online and summarize: what changed in React Server Components this year?" The skill asks 2–3 quick questions, searches from three angles in parallel, and returns a short summary with sources.
 
 ## flash-research
 

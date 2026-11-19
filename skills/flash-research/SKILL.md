@@ -1,6 +1,6 @@
 ---
 name: flash-research
-description: A quick, lighter pass of verified-research with the same accuracy rules — interviews the user, searches from several angles, challenges every claim — but a smaller agent pipeline and a 250 to 400 word answer, done in about 3 to 5 minutes of agent work. Use this skill when the user wants research "quickly", "briefly", "in short", asks a simple current-fact question or a single-claim fact-check, or says the full treatment is overkill. For high-stakes decisions (career, money, long-term commitments), deep dives, or maximum thoroughness, use verified-research instead. If it is genuinely unclear which one the user wants, ask "quick flash pass or full deep research?" before starting.
+description: A quick, lighter pass of verified-research with the same accuracy rules — interviews the user, searches from several angles, challenges every claim — but a smaller agent pipeline and a 250 to 400 word answer, done in about 3 to 5 minutes of agent work. Use this skill when the user wants research "quickly", "briefly", "in short", asks a simple current-fact question or a single-claim fact-check, or says the full treatment is overkill. For high-stakes decisions (career, money, long-term commitments), deep dives, or maximum thoroughness, use verified-research instead. For a quick, no-stakes summary of an online search, use targeted-search instead. If it is genuinely unclear which one the user wants, ask "quick flash pass or full deep research?" before starting.
 ---
 
 # Flash Research

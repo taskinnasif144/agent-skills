@@ -7,7 +7,7 @@ Installable agent skills for the [skills](https://skills.sh) ecosystem (`npx ski
 | | flash-research | verified-research |
 |---|---|---|
 | Use for | Quick passes, simple current-fact questions, single-claim fact-checks | Career/money/high-stakes decisions, deep dives, maximum thoroughness |
-| Pipeline | ~4 subagents (3 collectors, 1 skeptic), +1 optional source scout | 7–11 subagents (collect, challenge, verify) |
+| Pipeline | ~5 subagents (source scout, 3 collectors, 1 skeptic) | 8–11 subagents (source scout, collect, challenge, verify) |
 | Answer | 250–400 words, 4 sections | 600–800 words, 7 sections |
 | Time | About 3–5 minutes of agent work | About 5 minutes read, longer to research |
 

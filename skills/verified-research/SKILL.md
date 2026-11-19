@@ -31,7 +31,7 @@ hidden. Only the short final answer reaches the user.
 
 1. Grill the user
 2. Plan
-3. Scout sources (only when needed)
+3. Scout sources (always)
 4. Collect, in parallel
 5. Form assumptions
 6. Challenge, in parallel
@@ -80,11 +80,10 @@ Write a quick internal plan. Do not show it to the user.
   - Stable (fundamentals, history): older is fine, but confirm it still holds.
 - Decide which source types fit each sub-question.
 
-## Step 3: Scout sources (only when source quality matters)
+## Step 3: Scout sources (always)
 
-For job postings, salaries, hiring trends, or anything where some sources are
-much better than others: if you are not already sure which sources to trust,
-spawn a **Source Scout** subagent BEFORE collecting.
+Spawn a **Source Scout** subagent BEFORE collecting. Marketing-tier sources
+exist on every topic, so the Scout runs every time.
 
 The Scout battle-tests candidate sources. It checks:
 
@@ -92,6 +91,9 @@ The Scout battle-tests candidate sources. It checks:
 - How big is the sample? How recent is it? Who runs it and who pays for it?
 - Is the method public?
 - Do independent sources agree on a number that can be checked?
+- Is it marketing-tier content (affiliate links, sponsored markers, PR-only
+  origin, no public methodology, engagement-bait)? If yes, list it "do not
+  use" for numbers, however prominent it is.
 
 It returns a short list: trusted, usable with caution, do not use. Collectors
 use only the trusted and cautious lists for hard data.
@@ -114,7 +116,10 @@ angle, for example:
 Each Collector must:
 
 - Generate many varied search queries: different wording, synonyms, region
-  terms, "vs" comparisons, negative framings, year-specific terms.
+  terms, "vs" comparisons, negative framings, year-specific terms. Also run
+  primary-source queries: documentation, paper, dataset, filing.
+- Trace each finding to its primary source (the original data, paper, filing,
+  or official docs) where one exists.
 - Return every finding as: **claim, number (if any), source URL, publisher,
   publication date, date of the data itself, source type, and how it was
   measured.**
@@ -161,6 +166,8 @@ Also:
   number that is only repeated across articles.
 - Check dates twice: when it was published and when the data was collected.
 - Label each claim: **Confirmed, Likely, Disputed, Unverified, or False.**
+- A claim whose only support is marketing-tier content is **Unverified**:
+  discard it, and do not name it in the answer.
 - Throw away claims that are single-source, undated, unsourced, or outdated.
 - If good evidence is thin, say so. Never fill gaps with guesses.
 
@@ -215,6 +222,13 @@ A compact list of only the sources actually used: link and date.
 
 - Never invent a source, number, or date. If you cannot find it, say so.
 - Never treat a search snippet as verified. Open the page and check.
+- Judge a source by how its data was produced, never by how polished,
+  popular, or prominent the page is. Marketing-tier content (vendor blogs,
+  SEO listicles, affiliate rankings, sponsored posts, PR releases,
+  engagement-bait) never proves a number, however widely repeated. The
+  primary source (original data, paper, filing, official docs — a vendor's
+  own documentation is primary for facts about that vendor) outranks every
+  secondary retelling.
 - Tell the user today's date and the data window used if the topic is
   time-sensitive.
 - If a tool fails or something could not be checked, say exactly what.
@@ -234,16 +248,20 @@ Use these as starting prompts. Adapt them to the question.
 
 **Source Scout**
 "Find the main sources for [topic]. For each one, check how its data is
-produced, its sample size, recency, who runs it and who funds it, and whether
-its numbers match other sources. Return three lists: trusted, usable with
-caution, do not use. Give one line of reasoning per source."
+produced, its sample size, recency, who runs it and who funds it, whether it
+is marketing-tier content (affiliate links, sponsored markers, PR-only
+origin, no methodology), and whether its numbers match other sources. Return
+three lists: trusted, usable with caution, do not use. Give one line of
+reasoning per source."
 
 **Collector**
 "Research this angle: [angle] for the question: [question]. Context about the
 user: [interview summary]. Freshness window: [window]. Use many varied search
-queries. Return each finding as: claim, number, source URL, publisher,
-publication date, data date, source type, method. Separate data from opinion.
-Drop anything with no URL or date."
+queries, including primary-source queries (documentation, paper, dataset,
+filing). Trace each finding to its primary source where one exists. Return
+each finding as: claim, number, source URL, publisher, publication date, data
+date, source type, method. Separate data from opinion. Drop anything with no
+URL or date."
 
 **Skeptic**
 "Here are the assumptions: [list]. Try to prove each one wrong. Search for the
